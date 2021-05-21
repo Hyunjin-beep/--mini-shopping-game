@@ -98,6 +98,3 @@ body {
   height: var(--side-buttons);
   padding: calc(var(--base-space) * 1.5);
 }
-
-.items .item .item-detail {
-}
