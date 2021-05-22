@@ -22,9 +22,19 @@ function turnToHtml(item) {
   </li>`;
 }
 
+// When clicking logo, it will display all items
+// When clicking a button, items will be filtered by the button's type or color
+function setFiltered(items) {
+  const logo = document.querySelector(".logo");
+  const buttons = document.querySelector(".buttons");
+
+  logo.addEventListener("click", displayItems(items));
+  buttons.addEventListener("click", onButtonClicked());
+}
+
 intiItems()
   .then((items) => {
     displayItems(items);
-    // setFiltered(items);
+    setFiltered(items);
   })
   .catch(console.log);
