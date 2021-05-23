@@ -35,3 +35,7 @@ https://youtube.com/playlist?list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2
 https://developer.mozilla.org/ko/
 
 https://stackoverflow.com/questions/24834818/display-json-array-in-html
+
+https://pathas.tistory.com/213
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
