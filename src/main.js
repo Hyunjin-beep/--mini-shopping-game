@@ -24,17 +24,35 @@ function turnToHtml(item) {
 
 // When clicking logo, it will display all items
 // When clicking a button, items will be filtered by the button's type or color
+// Ref: https://pathas.tistory.com/213
+//      https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
 function setFiltered(items) {
-  const logo = document.querySelector(".logo");
+  const logo = document.querySelector(`.logo`);
   const buttons = document.querySelector(".buttons");
 
-  logo.addEventListener("click", displayItems(items));
-  buttons.addEventListener("click", onButtonClicked());
+  logo.addEventListener("click", (event) => onButtonClicked(event));
+  buttons.addEventListener("click", (event) => onButtonClicked(event));
+
+  const onButtonClicked = (event) => {
+    const type = event.target.dataset.key;
+    const value = event.target.dataset.value;
+
+    if (type === undefined || value === undefined) {
+      alert("Please click a proper button");
+    } else {
+      // JSON data file(items)'s type == button's value
+      // for example, in items, a type is pants.
+      // and button's value is also pants.
+      const filtered = items.filter((item) => item[type] === value);
+      displayItems(filtered);
+    }
+  };
 }
 
 intiItems()
   .then((items) => {
     displayItems(items);
+
     setFiltered(items);
   })
   .catch(console.log);
